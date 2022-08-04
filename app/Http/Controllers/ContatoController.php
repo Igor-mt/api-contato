@@ -10,7 +10,7 @@ class ContatoController extends Controller
 {
     public function index()
     {
-        $contato = Contato::paginate(15);
+        $contato = Contato::all();
         return ContatoResource::collection($contato);
     }
 
