@@ -3,16 +3,17 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-    
-class Contato extends JsonResource {
-public function toArray($request){
 
-        return [
-            'id' => $this->id,
-            'nome' => $this->nome,
-            'telefone' => $this->telefone,
-            'endereco' => $this->endereco
-        ];
-}
-}
+class Contato extends JsonResource
+{
+        public function toArray($request)
+        {
 
+                return [
+                        'id' => $this->id,
+                        'descricao' => $this->descricao,
+                        'tipo' => $this->tipo,
+                        'pessoa_id' => $this->pessoa_id
+                ];
+        }
+}

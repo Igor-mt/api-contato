@@ -10,16 +10,16 @@ class ContatoController extends Controller
 {
     public function index()
     {
-        $contato = Contato::all();
-        return ContatoResource::collection($contato);
+        $contatos = Contato::all();
+        return ContatoResource::collection($contatos);
     }
 
     public function store(Request $request)
     {
         $contato = new Contato;
-        $contato->nome = $request->input('nome');
-        $contato->telefone = $request->input('telefone');
-        $contato->endereco = $request->input('endereco');
+        $contato->descricao = $request->input('descricao');
+        $contato->tipo = $request->input('tipo');
+        $contato->pessoa_id = $request->input('pessoa_id');
 
         if ($contato->save()) {
             return new ContatoResource($contato);
@@ -35,9 +35,9 @@ class ContatoController extends Controller
     public function update(Request $request, $id)
     {
         $contato = Contato::findOrFail($request->id);
-        $contato->nome = $request->input('nome');
-        $contato->telefone = $request->input('telefone');
-        $contato->endereco = $request->input('endereco');
+        $contato->descricao = $request->input('descricao');
+        $contato->tipo = $request->input('tipo');
+        $contato->pessoa_id = $request->input('pessoa_id');
 
         if ($contato->save()) {
             return new ContatoResource($contato);
