@@ -17,10 +17,15 @@ class CreateContatosTable extends Migration
             $table->id();
             $table->string('descricao');
             $table->string('tipo');
-            $table->string('pessoa_id');
+            // $table->string('pessoa_id');
+            $table->foreignId('pessoa_id')->constrained('pessoas');
             $table->timestamps();
         });
     }
+
+    // Schema::table('pessoas', function (Blueprint $table) {
+    //     $table->foreignId('pessoa_id')->constrained('pessoas');
+    // });
 
     /**
      * Reverse the migrations.
